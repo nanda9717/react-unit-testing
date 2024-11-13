@@ -1,5 +1,19 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
+import renderer from 'react-test-renderer';
+import Users from './Users';
+import handleOtherMethod from './helper';
+
+test("Functional component method testing case 1",()=>{
+  render(<App/>);
+  const btn = screen.getByTestId('btn1');
+  fireEvent.click(btn);
+  expect(screen.getByText("Nane Singh")).toBeInTheDocument();
+})
+
+test("Functional component method testing case 2",()=>{
+  expect(handleOtherMethod()).toMatch("hi");
+})
 
 // beforeAll(()=>{
 //   console.log('*****Before All*****')
@@ -14,33 +28,38 @@ import App from './App';
 //   expect(container).toMatchSnapshot();
 // })
 
-test('Testing input box', ()=>{
-  //console.log('1');
-  render(<App />);
-  const checkInput = screen.getByRole('textbox');
-  const checkInputPlaceholder = screen.getByPlaceholderText('Enter User Name');
-  expect(checkInput).toBeInTheDocument();
-  expect(checkInputPlaceholder).toBeInTheDocument();
-  expect(checkInput).toHaveAttribute('name','username');
-  expect(checkInput).toHaveAttribute('id','userId');
-  expect(checkInput).toHaveAttribute('type','text');
-});
+// test("Class component method testing",()=>{
+//   const compData = renderer.create(<Users />).getInstance();
+//   expect(compData.getUserList()).toMatch("user listing");
+// });
 
-test('OnChange Event testing', ()=>{
-  //console.log('2');
-  render(<App />);
-  let inputBox = screen.getByRole('textbox');
-  fireEvent.change(inputBox,{target:{value:'abc'}});
-  expect(inputBox.value).toBe('abc');
-});
+// test('Testing input box', ()=>{
+//   //console.log('1');
+//   render(<App />);
+//   const checkInput = screen.getByRole('textbox');
+//   const checkInputPlaceholder = screen.getByPlaceholderText('Enter User Name');
+//   expect(checkInput).toBeInTheDocument();
+//   expect(checkInputPlaceholder).toBeInTheDocument();
+//   expect(checkInput).toHaveAttribute('name','username');
+//   expect(checkInput).toHaveAttribute('id','userId');
+//   expect(checkInput).toHaveAttribute('type','text');
+// });
 
-test("Click Event Test Case", ()=>{
-  //console.log('3');
-  render(<App/>);
-  let btn = screen.getByRole('button');
-  fireEvent.click(btn);
-  expect(screen.getByText('Nane Singh')).toBeInTheDocument();
-})
+// test('OnChange Event testing', ()=>{
+//   //console.log('2');
+//   render(<App />);
+//   let inputBox = screen.getByRole('textbox');
+//   fireEvent.change(inputBox,{target:{value:'abc'}});
+//   expect(inputBox.value).toBe('abc');
+// });
+
+// test("Click Event Test Case", ()=>{
+//   //console.log('3');
+//   render(<App/>);
+//   let btn = screen.getByRole('button');
+//   fireEvent.click(btn);
+//   expect(screen.getByText('Nane Singh')).toBeInTheDocument();
+// })
 
 // afterAll(()=>{
 //   console.log('****After All***')

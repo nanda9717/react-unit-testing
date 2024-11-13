@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import Users from './Users';
+import handleOtherMethod from './helper';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -44,7 +46,14 @@ function App() {
         <p>After Snapshot testing if we change anything in code then it will throw error. So we can update it by clicking `u`</p>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} name='username' id="userId" placeholder='Enter User Name' />
         <h3>{data}</h3>
-        <button onClick={handleClick}>Click Me</button>
+        <button data-testid="btn1" onClick={handleClick}>Click Me</button>
+        <button onClick={handleOtherMethod}>Print</button>
+        <h2>Class Component method testing</h2>
+        <p>Install this library - `npm i react-test-renderer`</p>
+        <Users />
+        <h4>RTL(React Testing Library) Query</h4>
+        <p>With RTL Query we can find out UI elements. </p>
+
         <img width="100" height="100" title="Nature Img" src="https://images.unsplash.com/photo-1707056707677-cbbbcf7ad2e7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       </main>
     </div>
