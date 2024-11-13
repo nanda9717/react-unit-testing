@@ -39,6 +39,9 @@ function App() {
           <li>afterAll - It will run only one time after all test cases.</li>
           <li>afterEach - It will run after each test case.</li>
         </ul>
+        <h4>Snapshot Testing</h4>
+        <p>We use Snapshot testing when our application is completed and we are going to live it. we avoid snapshot testing while development.</p>
+        <p>After Snapshot testing if we change anything in code then it will throw error. So we can update it by clicking `u`</p>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} name='username' id="userId" placeholder='Enter User Name' />
         <h3>{data}</h3>
         <button onClick={handleClick}>Click Me</button>

@@ -9,6 +9,11 @@ import App from './App';
 //   console.log('*****Before Each*****')
 // })
 
+// test("Snapshot for app component", ()=>{
+//   const container = render(<App/>);
+//   expect(container).toMatchSnapshot();
+// })
+
 test('Testing input box', ()=>{
   //console.log('1');
   render(<App />);
