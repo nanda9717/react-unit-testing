@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Users from './Users';
 import handleOtherMethod from './helper';
+import RTLUnitTesting from './RTLUnitTesting';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -55,6 +56,7 @@ function App() {
         <p>With RTL Query we can find out UI elements. </p>
 
         <img width="100" height="100" title="Nature Img" src="https://images.unsplash.com/photo-1707056707677-cbbbcf7ad2e7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <RTLUnitTesting />
       </main>
     </div>
   );
